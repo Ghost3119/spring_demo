@@ -29,9 +29,9 @@ public class ProductController {
     public Product create(@RequestBody Product product){
         return productService.save(product);
     }
-    
+
     @PutMapping("/{id}")
-    public Product update( @RequestBody Product product){
+    public Product update(@RequestBody Product product){
         return productService.update(product);
     }
 
