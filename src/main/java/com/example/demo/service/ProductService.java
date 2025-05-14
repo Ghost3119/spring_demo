@@ -26,7 +26,18 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public Product update(Product product){
+        if (productRepository.existsById(product.getId())) {
+            return productRepository.save(product);
+        } else {
+            throw new IllegalArgumentException("El producto con el ID especificado no existe.");
+        }
+    }
+
     public void deleteById(long id){
+        if (!productRepository.existsById(id)) {
+            throw new IllegalArgumentException("El producto con el ID especificado no existe.");
+        }
         productRepository.deleteById(id);
     }
 }
